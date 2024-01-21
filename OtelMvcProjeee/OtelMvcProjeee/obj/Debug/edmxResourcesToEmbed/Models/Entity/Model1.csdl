@@ -1,0 +1,167 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Schema Namespace="DbOtelYeniModel" Alias="Self" annotation:UseStrongSpatialTypes="false" xmlns:annotation="http://schemas.microsoft.com/ado/2009/02/edm/annotation" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm">
+  <EntityType Name="TblHakkimda">
+    <Key>
+      <PropertyRef Name="Id" />
+    </Key>
+    <Property Name="Id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="Hakkimda1" Type="String" MaxLength="1000" FixedLength="false" Unicode="true" />
+    <Property Name="Hakkimda2" Type="String" MaxLength="1000" FixedLength="false" Unicode="true" />
+    <Property Name="Hakkimda3" Type="String" MaxLength="1000" FixedLength="false" Unicode="true" />
+    <Property Name="Hakkimda4" Type="String" MaxLength="1000" FixedLength="false" Unicode="true" />
+  </EntityType>
+  <EntityContainer Name="DbOtelYeniEntities" annotation:LazyLoadingEnabled="true">
+    <EntitySet Name="TblHakkimda" EntityType="Self.TblHakkimda" />
+    <EntitySet Name="Tbliletisim" EntityType="DbOtelYeniModel.Tbliletisim" />
+    <EntitySet Name="TblMesaj" EntityType="DbOtelYeniModel.TblMesaj" />
+    <EntitySet Name="TblYeniKayit" EntityType="DbOtelYeniModel.TblYeniKayit" />
+    <EntitySet Name="TblMisafir" EntityType="DbOtelYeniModel.TblMisafir" />
+    <EntitySet Name="TblRezervasyon" EntityType="DbOtelYeniModel.TblRezervasyon" />
+    <AssociationSet Name="FK_TblRezervasyon_TblMisafir" Association="DbOtelYeniModel.FK_TblRezervasyon_TblMisafir">
+      <End Role="TblMisafir" EntitySet="TblMisafir" />
+      <End Role="TblRezervasyon" EntitySet="TblRezervasyon" />
+    </AssociationSet>
+    <EntitySet Name="TblMesaj2" EntityType="DbOtelYeniModel.TblMesaj2" />
+    <EntitySet Name="TblOda" EntityType="DbOtelYeniModel.TblOda" />
+    <AssociationSet Name="FK_TblRezervasyon_TblOda" Association="DbOtelYeniModel.FK_TblRezervasyon_TblOda">
+      <End Role="TblOda" EntitySet="TblOda" />
+      <End Role="TblRezervasyon" EntitySet="TblRezervasyon" />
+    </AssociationSet>
+    <EntitySet Name="TblOnRezervasyon" EntityType="DbOtelYeniModel.TblOnRezervasyon" />
+  </EntityContainer>
+  <EntityType Name="Tbliletisim">
+    <Key>
+      <PropertyRef Name="Id" />
+    </Key>
+    <Property Name="Id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="Aciklama" Type="String" MaxLength="1000" FixedLength="false" Unicode="true" />
+    <Property Name="Koordinat" Type="String" MaxLength="1000" FixedLength="false" Unicode="true" />
+    <Property Name="Telefon" Type="String" MaxLength="30" FixedLength="false" Unicode="true" />
+    <Property Name="Mail" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+    <Property Name="Adres" Type="String" MaxLength="250" FixedLength="false" Unicode="true" />
+  </EntityType>
+  <EntityType Name="TblMesaj">
+    <Key>
+      <PropertyRef Name="MesajId" />
+    </Key>
+    <Property Name="MesajId" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="Gonderen" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+    <Property Name="Mail" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+    <Property Name="Konu" Type="String" MaxLength="100" FixedLength="false" Unicode="true" />
+    <Property Name="Mesaj" Type="String" MaxLength="100" FixedLength="false" Unicode="true" />
+  </EntityType>
+  <EntityType Name="TblYeniKayit">
+    <Key>
+      <PropertyRef Name="Id" />
+    </Key>
+    <Property Name="Id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="AdSoyad" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+    <Property Name="Mail" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+    <Property Name="Telefon" Type="String" MaxLength="20" FixedLength="false" Unicode="true" />
+    <Property Name="Sifre" Type="String" MaxLength="20" FixedLength="false" Unicode="true" />
+  </EntityType>
+  <EntityType Name="TblMisafir">
+    <Key>
+      <PropertyRef Name="MisafirId" />
+    </Key>
+    <Property Name="MisafirId" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="AdSoyad" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+    <Property Name="Tc" Type="String" MaxLength="11" FixedLength="true" Unicode="false" />
+    <Property Name="Mail" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+    <Property Name="Telefon" Type="String" MaxLength="20" FixedLength="false" Unicode="true" />
+    <Property Name="Adres" Type="String" MaxLength="200" FixedLength="false" Unicode="true" />
+    <Property Name="Aciklama" Type="String" MaxLength="250" FixedLength="false" Unicode="true" />
+    <Property Name="KimlikFoto1" Type="String" MaxLength="100" FixedLength="false" Unicode="true" />
+    <Property Name="Ülke" Type="Int32" />
+    <Property Name="lke" Type="Int32" />
+    <Property Name="Durum" Type="Int32" />
+    <Property Name="sehir" Type="Int32" />
+    <Property Name="ilce" Type="Int32" />
+    <Property Name="KimlikFoto2" Type="String" MaxLength="100" FixedLength="false" Unicode="true" />
+    <Property Name="Ulke" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+    <Property Name="Ülke1" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+    <NavigationProperty Name="TblRezervasyon" Relationship="DbOtelYeniModel.FK_TblRezervasyon_TblMisafir" FromRole="TblMisafir" ToRole="TblRezervasyon" />
+  </EntityType>
+  <EntityType Name="TblRezervasyon">
+    <Key>
+      <PropertyRef Name="RezervasyonId" />
+    </Key>
+    <Property Name="RezervasyonId" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="Misafir" Type="Int32" />
+    <Property Name="GirisTarih" Type="DateTime" Precision="0" />
+    <Property Name="CikisTarih" Type="DateTime" Precision="0" />
+    <Property Name="Kisi" Type="String" MaxLength="1" FixedLength="true" Unicode="false" />
+    <Property Name="Oda" Type="Int32" />
+    <Property Name="RezervasyonAdSoyad" Type="String" MaxLength="30" FixedLength="false" Unicode="true" />
+    <Property Name="Telefon" Type="String" MaxLength="20" FixedLength="false" Unicode="true" />
+    <Property Name="Aciklama" Type="String" MaxLength="500" FixedLength="false" Unicode="true" />
+    <Property Name="Durum" Type="Int32" />
+    <NavigationProperty Name="TblMisafir" Relationship="DbOtelYeniModel.FK_TblRezervasyon_TblMisafir" FromRole="TblRezervasyon" ToRole="TblMisafir" />
+    <NavigationProperty Name="TblOda" Relationship="DbOtelYeniModel.FK_TblRezervasyon_TblOda" FromRole="TblRezervasyon" ToRole="TblOda" />
+    <Property Name="Kisi1" Type="Int32" />
+    <Property Name="Kisi2" Type="Int32" />
+    <Property Name="Kisi3" Type="Int32" />
+  </EntityType>
+  <Association Name="FK_TblRezervasyon_TblMisafir">
+    <End Type="DbOtelYeniModel.TblMisafir" Role="TblMisafir" Multiplicity="0..1" />
+    <End Type="DbOtelYeniModel.TblRezervasyon" Role="TblRezervasyon" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="TblMisafir">
+        <PropertyRef Name="MisafirId" />
+      </Principal>
+      <Dependent Role="TblRezervasyon">
+        <PropertyRef Name="Misafir" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <EntityType Name="TblMesaj2">
+    <Key>
+      <PropertyRef Name="MesajId" />
+    </Key>
+    <Property Name="MesajId" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="Gonderen" Type="String" MaxLength="100" FixedLength="false" Unicode="true" />
+    <Property Name="Alici" Type="String" MaxLength="100" FixedLength="false" Unicode="true" />
+    <Property Name="Konu" Type="String" MaxLength="100" FixedLength="false" Unicode="true" />
+    <Property Name="Mesaj" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+    <Property Name="Tarih" Type="DateTime" Precision="0" />
+  </EntityType>
+  <EntityType Name="TblOda">
+    <Key>
+      <PropertyRef Name="OdaId" />
+    </Key>
+    <Property Name="OdaId" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="OdaNo" Type="String" MaxLength="3" FixedLength="true" Unicode="false" />
+    <Property Name="Kat" Type="String" MaxLength="2" FixedLength="false" Unicode="false" />
+    <Property Name="Kapasite" Type="String" MaxLength="1" FixedLength="true" Unicode="false" />
+    <Property Name="Acıklama" Type="String" MaxLength="200" FixedLength="false" Unicode="true" />
+    <Property Name="Telefon" Type="String" MaxLength="4" FixedLength="true" Unicode="false" />
+    <Property Name="Durum" Type="Int32" />
+    <NavigationProperty Name="TblRezervasyon" Relationship="DbOtelYeniModel.FK_TblRezervasyon_TblOda" FromRole="TblOda" ToRole="TblRezervasyon" />
+  </EntityType>
+  <Association Name="FK_TblRezervasyon_TblOda">
+    <End Type="DbOtelYeniModel.TblOda" Role="TblOda" Multiplicity="0..1" />
+    <End Type="DbOtelYeniModel.TblRezervasyon" Role="TblRezervasyon" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="TblOda">
+        <PropertyRef Name="OdaId" />
+      </Principal>
+      <Dependent Role="TblRezervasyon">
+        <PropertyRef Name="Oda" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <EntityType Name="TblOnRezervasyon">
+    <Key>
+      <PropertyRef Name="Id" />
+    </Key>
+    <Property Name="Id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="Mail" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+    <Property Name="AdSoyad" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+    <Property Name="GirisTarih" Type="DateTime" Precision="0" />
+    <Property Name="CikisTarih" Type="DateTime" Precision="0" />
+    <Property Name="Kisi" Type="String" MaxLength="1" FixedLength="false" Unicode="true" />
+    <Property Name="Telefon" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+    <Property Name="Aciklama" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+    <Property Name="Tarih" Type="DateTime" Precision="0" />
+  </EntityType>
+</Schema>
